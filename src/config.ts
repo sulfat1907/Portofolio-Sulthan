@@ -1,5 +1,5 @@
 export const config = {
-  profileImage: "https://picsum.photos/seed/youngman/400/400",
+  profileImage: "https://drive.google.com/file/d/111XzyTkQ0vZsVrE5VxuAqNGdePutTOAz/view?usp=sharing",
   cvLink: "https://example.com/cv.pdf", // Ganti dengan link CV Anda
   socialLinks: {
     email: "hellohi.sulthan@gmail.com",
