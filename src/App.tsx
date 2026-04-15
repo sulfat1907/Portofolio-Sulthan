@@ -14,6 +14,7 @@ import {
   Heart
 } from 'lucide-react';
 import { translations, Language } from './translations';
+import { config } from './config';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -55,8 +56,17 @@ export default function App() {
 
   return (
     <div className={`min-h-screen bg-[#050505] text-zinc-100 font-sans selection:bg-indigo-500/30 selection:text-indigo-200 ${isRTL ? 'font-arabic' : ''}`}>
-      {/* Language Switcher */}
-      <nav className="fixed top-6 right-6 z-50">
+      {/* Top Navigation */}
+      <nav className="fixed top-6 right-6 z-50 flex items-center gap-3">
+        <Button 
+          asChild
+          variant="outline" 
+          className="rounded-full bg-zinc-900/50 border-zinc-800 hover:bg-zinc-800 hover:border-zinc-700 transition-all text-sm font-medium"
+        >
+          <a href={config.cvLink} target="_blank" rel="noopener noreferrer">
+            {t.footer.cv}
+          </a>
+        </Button>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" size="icon" className="rounded-full bg-zinc-900/50 border-zinc-800 hover:bg-zinc-800 hover:border-zinc-700 transition-all">
@@ -85,9 +95,9 @@ export default function App() {
                 <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
                 <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-900">
                   <img 
-                    src="https://picsum.photos/seed/youngman/400/400" 
+                    src={config.profileImage} 
                     alt="Profile" 
-                    className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                    className="w-full h-full object-cover transition-all duration-500"
                     referrerPolicy="no-referrer"
                   />
                 </div>
@@ -129,13 +139,13 @@ export default function App() {
                 </motion.div>
 
                 <motion.div variants={itemVariants} className="mt-8 flex justify-center md:justify-start gap-4">
-                  <a href="mailto:hellohi.sulthan@gmail.com" className="p-3 rounded-full bg-zinc-900 border border-zinc-800 hover:border-indigo-500/50 hover:text-indigo-400 transition-all">
+                  <a href={`mailto:${config.socialLinks.email}`} className="p-3 rounded-full bg-zinc-900 border border-zinc-800 hover:border-indigo-500/50 hover:text-indigo-400 transition-all">
                     <Mail className="w-5 h-5" />
                   </a>
-                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-zinc-900 border border-zinc-800 hover:border-indigo-500/50 hover:text-indigo-400 transition-all">
+                  <a href={config.socialLinks.instagram} target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-zinc-900 border border-zinc-800 hover:border-indigo-500/50 hover:text-indigo-400 transition-all">
                     <Instagram className="w-5 h-5" />
                   </a>
-                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-zinc-900 border border-zinc-800 hover:border-indigo-500/50 hover:text-indigo-400 transition-all">
+                  <a href={config.socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-zinc-900 border border-zinc-800 hover:border-indigo-500/50 hover:text-indigo-400 transition-all">
                     <Linkedin className="w-5 h-5" />
                   </a>
                 </motion.div>
@@ -233,7 +243,7 @@ export default function App() {
               asChild
               className="bg-white text-black hover:bg-zinc-200 h-14 px-10 rounded-full text-lg font-bold group transition-all"
             >
-              <a href="mailto:hellohi.sulthan@gmail.com">
+              <a href={`mailto:${config.socialLinks.email}`}>
                 {t.footer.contactMe}
                 <ExternalLink className={`w-5 h-5 ${isRTL ? 'mr-2' : 'ml-2'} group-hover:translate-x-1 transition-transform`} />
               </a>

@@ -17,6 +17,7 @@ export interface Translation {
   };
   footer: {
     contactMe: string;
+    cv: string;
   };
   data: {
     dobValue: string;
@@ -46,6 +47,7 @@ export const translations: Record<Language, Translation> = {
     },
     footer: {
       contactMe: "Contact Me",
+      cv: "Curriculum Vitae",
     },
     data: {
       dobValue: "January 15, 2002",
@@ -89,6 +91,7 @@ export const translations: Record<Language, Translation> = {
     },
     footer: {
       contactMe: "Hubungi Saya",
+      cv: "Daftar Riwayat Hidup",
     },
     data: {
       dobValue: "15 Januari 2002",
@@ -132,6 +135,7 @@ export const translations: Record<Language, Translation> = {
     },
     footer: {
       contactMe: "اتصل بي",
+      cv: "السيرة الذاتية",
     },
     data: {
       dobValue: "١٥ يناير ٢٠٠٢",
